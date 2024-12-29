@@ -1,0 +1,17 @@
+<component name="libraryTable">
+  <library name="springframework.spring.context" type="repository">
+    <properties maven-id="org.springframework:spring-context:6.1.11" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/spring-context-6.1.11.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-aop-6.1.11.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-beans-6.1.11.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-core-6.1.11.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-jcl-6.1.11.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-expression-6.1.11.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/micrometer-observation-1.12.8.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/micrometer-commons-1.12.8.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

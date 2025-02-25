@@ -5,7 +5,9 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import ru.ivan.ivanov.configs.SpringConfig;
 
 /**
- * @author Ivan Ivanov
+ * Holds static ApplicationContext class
+ *
+ *  @author Ivan Ivanov
  **/
 public class ApplicationContextHolder {
     private static final ApplicationContext context =

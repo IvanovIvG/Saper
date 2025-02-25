@@ -2,11 +2,8 @@ package ru.ivan.ivanov.gameLogic.bot.patterns.netAreaAnalysis;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import ru.ivan.ivanov.gameLogic.bot.FieldInfo;
 import ru.ivan.ivanov.gameLogic.net.Net;
-import ru.ivan.ivanov.gameLogic.turn.Turn;
 
 //this pattern look at opened close net(net b) of some net(net a)
 //if all closedCloseNets of net a(list a) contains in closedCloseNet of net b(list b)

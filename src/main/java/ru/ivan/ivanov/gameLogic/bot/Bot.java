@@ -7,8 +7,7 @@ import ru.ivan.ivanov.gameLogic.bot.patterns.NoOpenGreyNetsPattern;
 import ru.ivan.ivanov.gameLogic.bot.patterns.Pattern;
 import ru.ivan.ivanov.gameLogic.bot.patterns.netAreaAnalysis.OpenAllCloseNetsPattern;
 import ru.ivan.ivanov.gameLogic.gameTry.tryConfig.TryConfig;
-import ru.ivan.ivanov.gameLogic.turn.Turn;
-import ru.ivan.ivanov.gameLogic.turn.TurnOption;
+import ru.ivan.ivanov.gameLogic.Turn;
 import ru.ivan.ivanov.gameLogic.bot.patterns.netAreaAnalysis.CloseNetsInclusionPattern;
 import ru.ivan.ivanov.gameLogic.bot.patterns.netAreaAnalysis.FlagAllCloseNetsPattern;
 
@@ -72,11 +71,11 @@ public class Bot {
     }
 
     private boolean turnIsNotMade() {
-        return turnToMake.turnOption == TurnOption.NoTurn;
+        return turnToMake.turnOption == Turn.NoTurn;
     }
 
     private void makePlayerTurn(){
-        turnToMake.turnOption = TurnOption.PlayerTurn;
+        turnToMake.turnOption = Turn.PlayerTurn;
     }
 
 

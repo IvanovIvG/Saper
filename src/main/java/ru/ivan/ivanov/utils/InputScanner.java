@@ -7,6 +7,11 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.function.Predicate;
 
+/**
+ * Scanner for integers from console.
+ *
+ *  @author Ivan Ivanov
+ **/
 @Component
 @RequiredArgsConstructor
 public class InputScanner {

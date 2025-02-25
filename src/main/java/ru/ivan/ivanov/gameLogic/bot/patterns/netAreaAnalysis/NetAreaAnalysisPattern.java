@@ -3,8 +3,7 @@ package ru.ivan.ivanov.gameLogic.bot.patterns.netAreaAnalysis;
 import ru.ivan.ivanov.gameLogic.bot.FieldInfo;
 import ru.ivan.ivanov.gameLogic.bot.patterns.Pattern;
 import ru.ivan.ivanov.gameLogic.net.Net;
-import ru.ivan.ivanov.gameLogic.turn.Turn;
-import ru.ivan.ivanov.gameLogic.turn.TurnOption;
+import ru.ivan.ivanov.gameLogic.Turn;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,7 +45,7 @@ public abstract class NetAreaAnalysisPattern extends Pattern {
         fillInFlaggedCloseNets(net);
         fillInClosedCloseNets(net);
         fillInOpenedCloseNets(net);
-        mineNumber = net.closeMines;
+        mineNumber = net.closeMinesNumber;
     }
 
     private void fillInInfoLists(Net net, NetsWithMines infoOnCloseNets) {
@@ -54,7 +53,7 @@ public abstract class NetAreaAnalysisPattern extends Pattern {
         fillInClosedCloseNets(net);
         closedCloseNets.removeAll(infoOnCloseNets.getNets());
         fillInOpenedCloseNets(net);
-        mineNumber = net.closeMines - infoOnCloseNets.getMinesNumber();
+        mineNumber = net.closeMinesNumber - infoOnCloseNets.getMinesNumber();
     }
 
     private boolean patternHasMeanToTry() {
@@ -79,6 +78,6 @@ public abstract class NetAreaAnalysisPattern extends Pattern {
     protected abstract void tryPatternOnNet();
 
     private boolean turnIsMade() {
-        return turnToMake.turnOption != TurnOption.NoTurn;
+        return turnToMake.turnOption != Turn.NoTurn;
     }
 }

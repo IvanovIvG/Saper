@@ -6,15 +6,17 @@ import ru.ivan.ivanov.utils.InputScanner;
 
 import java.util.function.Predicate;
 
+/**
+ * Contract for app's window
+ * <p>
+ * Such window prints text after scan number. Depending on number, it goes to next window.
+ *
+ *  @author Ivan Ivanov
+ **/
 public abstract class SimpleInputOutputWindow implements Window {
     private final String printedText;
     private final Predicate<Integer> inputCondition;
     private InputScanner scanner;
-
-    SimpleInputOutputWindow(){
-        printedText = "This is default Window";
-        inputCondition = (Integer inputInt) -> inputInt > 0;
-    }
 
     SimpleInputOutputWindow(String printedText, Predicate<Integer> inputLambdaCondition){
         this.printedText = printedText;

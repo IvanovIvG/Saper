@@ -1,9 +1,7 @@
 package ru.ivan.ivanov.gameLogic.bot.patterns.netAreaAnalysis;
 
-import org.springframework.stereotype.Component;
 import ru.ivan.ivanov.gameLogic.bot.FieldInfo;
-import ru.ivan.ivanov.gameLogic.turn.Turn;
-import ru.ivan.ivanov.gameLogic.turn.TurnOption;
+import ru.ivan.ivanov.gameLogic.Turn;
 
 public class OpenAllCloseNetsPattern extends NetAreaAnalysisPattern {
 
@@ -23,7 +21,7 @@ public class OpenAllCloseNetsPattern extends NetAreaAnalysisPattern {
     }
 
     private void openAllCloseClosedNets() {
-        turnToMake.turnOption = TurnOption.OpenNet;
+        turnToMake.turnOption = Turn.OpenNet;
         turnToMake.netsToTurn.addAll(closedCloseNets);
     }
 }

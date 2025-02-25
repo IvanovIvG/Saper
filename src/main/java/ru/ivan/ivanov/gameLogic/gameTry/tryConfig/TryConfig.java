@@ -1,11 +1,15 @@
 package ru.ivan.ivanov.gameLogic.gameTry.tryConfig;
 
+import org.springframework.context.annotation.Lazy;
+import org.springframework.stereotype.Component;
 import ru.ivan.ivanov.gameLogic.net.Net;
 import java.io.IOException;
 import java.util.List;
 
+@Component
+@Lazy
 public class TryConfig {
-    public List<Net> gameField;
+    private final List<Net> gameField;
     public GameState gameState;
     public final int fieldWidth;
     public final int fieldHeight;

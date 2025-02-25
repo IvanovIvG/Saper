@@ -2,8 +2,7 @@ package ru.ivan.ivanov.gameLogic.gameTry;
 
 import ru.ivan.ivanov.gameLogic.gameTry.tryConfig.TryConfig;
 import ru.ivan.ivanov.gameLogic.net.Net;
-import ru.ivan.ivanov.gameLogic.turn.Turn;
-import ru.ivan.ivanov.gameLogic.turn.TurnOption;
+import ru.ivan.ivanov.gameLogic.Turn;
 import ru.ivan.ivanov.utils.InputScanner;
 import ru.ivan.ivanov.gameLogic.gameTry.tryConfig.GameState;
 
@@ -47,7 +46,7 @@ public class TryUpdater {
     }
 
     private static void openNotMinedNet(Net netToOpen) {
-        netToOpen.openNet(tryConfigToUpdate.gameField);
+        netToOpen.open(tryConfigToUpdate.gameField);
         if(gameWon()) {
             tryConfigToUpdate.gameState = GameState.GameWin;
             unflagAllNets();
@@ -116,9 +115,9 @@ public class TryUpdater {
     private static void setTurnOption() {
         int turnOption = InputScanner.scanInt(a-> a >= 0 && a < 3);
         switch (turnOption) {
-            case 0 -> madeTurn.turnOption = TurnOption.OpenNet;
-            case 1 -> madeTurn.turnOption = TurnOption.PutFlag;
-            case 2 -> madeTurn.turnOption = TurnOption.TakeOffFlag;
+            case 0 -> madeTurn.turnOption = Turn.OpenNet;
+            case 1 -> madeTurn.turnOption = Turn.PutFlag;
+            case 2 -> madeTurn.turnOption = Turn.TakeOffFlag;
         }
     }
 

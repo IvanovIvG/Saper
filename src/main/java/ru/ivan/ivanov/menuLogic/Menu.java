@@ -6,6 +6,11 @@ import ru.ivan.ivanov.menuLogic.windows.*;
 import ru.ivan.ivanov.menuLogic.windows.simpleInputOutputWindows.EntryMenu;
 import ru.ivan.ivanov.utils.ApplicationContextHolder;
 
+/**
+ * App's entrypoint class.
+ *
+ * @author Ivan Ivanov
+ **/
 @Component
 public class Menu {
     private Window currentVisibleWindow;

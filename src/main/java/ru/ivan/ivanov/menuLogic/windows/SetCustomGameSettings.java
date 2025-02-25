@@ -2,14 +2,22 @@ package ru.ivan.ivanov.menuLogic.windows;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
+import ru.ivan.ivanov.gameLogic.gameTry.GameProperties;
 import ru.ivan.ivanov.utils.InputScanner;
 
+/**
+ * This window sets custom game settings.
+ *
+ *  @author Ivan Ivanov
+ **/
 @Component
 @RequiredArgsConstructor
-public class GameSettingsConfigurer implements Window {
+public class SetCustomGameSettings implements Window {
     //close Windows
     private final Game game;
+
     private final InputScanner scanner;
+    private final GameProperties gameProperties;
 
     @Override
     public Window runWindowAndGoToNext() {
@@ -23,7 +31,7 @@ public class GameSettingsConfigurer implements Window {
         int numberOfMinesOnField = scanner.scanInt((Integer inputNum) ->
                 inputNum>0 && inputNum<10000 && inputNum< gameFieldHeight * gameFieldWidth);
 
-        game.setGameFieldSettings(gameFieldWidth, gameFieldHeight, numberOfMinesOnField);
+        gameProperties.setProperties(gameFieldWidth, gameFieldHeight, numberOfMinesOnField);
         return game;
     }
 }

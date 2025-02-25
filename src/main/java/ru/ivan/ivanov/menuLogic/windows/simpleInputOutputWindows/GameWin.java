@@ -4,6 +4,11 @@ import org.springframework.stereotype.Component;
 import ru.ivan.ivanov.menuLogic.windows.Window;
 import ru.ivan.ivanov.utils.InputScanner;
 
+/**
+ * This window is shown when game is won.
+ *
+ *  @author Ivan Ivanov
+ **/
 @Component
 public class GameWin extends SimpleInputOutputWindow {
     // close Windows

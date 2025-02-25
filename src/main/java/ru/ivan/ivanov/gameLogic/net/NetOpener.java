@@ -24,7 +24,7 @@ public class NetOpener {
 
     private void fillInBoardList(Net initialNet) {
         boardNets.clear();
-        for(Net net : initialNet.closeNets){
+        for(Net net : initialNet.getCloseNets()){
             if(netShouldBeOpened(net)) {
                 boardNets.add(net);
             }
@@ -71,7 +71,7 @@ public class NetOpener {
     }
 
     private boolean netIsGrey(Net net) {
-        return net.closeMines == 0;
+        return net.getCloseMinesNumber() == 0;
     }
 
     private void addNetsClosedCloseNetsToNewBoard(Net net, List<Net> newBoardNets) {
@@ -81,7 +81,7 @@ public class NetOpener {
     }
 
     private boolean hasClosedCloseNets(Net net) {
-        for(Net closeNet : net.closeNets){
+        for(Net closeNet : net.getCloseNets()){
             if(closeNet.isClosed()) {
                 return true;
             }
@@ -90,7 +90,7 @@ public class NetOpener {
     }
 
     private void addHerClosedCloseNetsToNewBoard(Net net, List<Net> newBoardNets) {
-        for(Net closeNet : net.closeNets){
+        for(Net closeNet : net.getCloseNets()){
             if(closeNet.isClosed()) addCloseNet(closeNet, newBoardNets);
         }
     }

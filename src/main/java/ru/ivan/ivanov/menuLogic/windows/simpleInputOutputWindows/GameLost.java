@@ -4,6 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import ru.ivan.ivanov.menuLogic.windows.Window;
 
+/**
+ * This window is shown when game is lost.
+ *
+ *  @author Ivan Ivanov
+ **/
 @Component
 public class GameLost extends SimpleInputOutputWindow {
     // close Windows

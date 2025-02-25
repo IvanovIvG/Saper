@@ -98,7 +98,7 @@ public class GameFieldCreator {
         for (int i = 0; i < fieldHeight; i++) {
             for (int j = 0; j < fieldWidth; j++) {
                 boolean isNetMined = linedField[i*fieldWidth + j];
-                matrixField[i][j].setMine(isNetMined);
+                matrixField[i][j].setMined(isNetMined);
             }
         }
     }
@@ -184,7 +184,7 @@ public class GameFieldCreator {
                 if(extendedMatrixField[i+1][j-1].isMined()) minesNumber++;
                 if(extendedMatrixField[i+1][j].isMined()) minesNumber++;
                 if(extendedMatrixField[i+1][j+1].isMined()) minesNumber++;
-                extendedMatrixField[i][j].closeMines = minesNumber;
+                extendedMatrixField[i][j].closeMinesNumber = minesNumber;
             }
         }
     }
@@ -192,7 +192,7 @@ public class GameFieldCreator {
     private void copyNumberFieldsFromExtendedMatrix(Net[][] matrixField, Net[][] extendedMatrixField) {
         for (int i = 0; i <fieldHeight; i++) {
             for (int j = 0; j < fieldWidth; j++) {
-                matrixField[i][j].closeMines = extendedMatrixField[i + 1][j + 1].closeMines;
+                matrixField[i][j].closeMinesNumber = extendedMatrixField[i + 1][j + 1].closeMinesNumber;
             }
         }
     }

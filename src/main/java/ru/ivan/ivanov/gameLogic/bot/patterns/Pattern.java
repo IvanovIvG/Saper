@@ -1,7 +1,6 @@
 package ru.ivan.ivanov.gameLogic.bot.patterns;
 
 import ru.ivan.ivanov.gameLogic.bot.FieldInfo;
-import ru.ivan.ivanov.gameLogic.turn.Turn;
 
 public abstract class Pattern {
     protected final FieldInfo fieldInfo;

@@ -1,7 +1,6 @@
 package ru.ivan.ivanov.gameLogic.gameTry.fieldDrawer;
 
 import ru.ivan.ivanov.gameLogic.net.Net;
-import ru.ivan.ivanov.gameLogic.net.NetState;
 
 
 public class ClosedNetDrawer implements NetDrawer {
@@ -22,7 +21,7 @@ public class ClosedNetDrawer implements NetDrawer {
                     System.out.print("*");
                 }
                 else {
-                    System.out.print(net.closeMines);
+                    System.out.print(net.closeMinesNumber);
                 }
             }
         }

@@ -1,11 +1,8 @@
 package ru.ivan.ivanov.gameLogic.bot.patterns;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import ru.ivan.ivanov.gameLogic.bot.FieldInfo;
 import ru.ivan.ivanov.gameLogic.net.Net;
-import ru.ivan.ivanov.gameLogic.turn.Turn;
-import ru.ivan.ivanov.gameLogic.turn.TurnOption;
+import ru.ivan.ivanov.gameLogic.Turn;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -39,11 +36,11 @@ public class NoOpenGreyNetsPattern extends Pattern {
 
     private void openNet(Net net) {
         turnToMake.netsToTurn.add(net);
-        turnToMake.turnOption = TurnOption.OpenNet;
+        turnToMake.turnOption = Turn.OpenNet;
     }
 
     private boolean netIsGrey(Net net) {
-        return net.closeMines == 0;
+        return net.closeMinesNumber == 0;
     }
 
 

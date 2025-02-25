@@ -1,16 +1,15 @@
 package ru.ivan.ivanov.menuLogic;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 import ru.ivan.ivanov.menuLogic.windows.*;
-import ru.ivan.ivanov.saperUtils.ApplicationContextHolder;
+import ru.ivan.ivanov.menuLogic.windows.simpleInputOutputWindows.EntryMenu;
+import ru.ivan.ivanov.utils.ApplicationContextHolder;
 
 @Component
 public class Menu {
     private Window currentVisibleWindow;
 
-    @Autowired
     public Menu(EntryMenu entryMenu) {
         currentVisibleWindow = entryMenu;
     }
@@ -28,7 +27,7 @@ public class Menu {
     }
 
     private boolean programNotFinished(Window currentVisibleWindow) {
-        boolean programFinished = currentVisibleWindow instanceof EndProgramWindowStub;
+        boolean programFinished = currentVisibleWindow == null;
         return !programFinished;
     }
 

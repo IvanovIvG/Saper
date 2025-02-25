@@ -1,18 +1,20 @@
-package ru.ivan.ivanov.saperUtils.inputScanner;
+package ru.ivan.ivanov.utils;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.util.function.Predicate;
 
 @Component
+@RequiredArgsConstructor
 public class InputScanner {
-    private static final Scanner scanner = new Scanner(System.in);
+    private final Scanner scanner;
 
-    public static int scanInt(InputCondition inputCondition) {
-        boolean correctIntNotScanned = true;
+    public int scanInt(Predicate<Integer> inputCondition) {
         int inputNumber = 0 ;
-        while(correctIntNotScanned) {
+        while(true) {
             try {
                 inputNumber = scanner.nextInt();
             }
@@ -22,8 +24,8 @@ public class InputScanner {
                 continue;
             }
 
-            if(inputCondition.checkInputCondition(inputNumber)) {
-                correctIntNotScanned = false;
+            if(inputCondition.test(inputNumber)) {
+                break;
             }
             else {
                 System.out.println("You've entered inappropriate number");

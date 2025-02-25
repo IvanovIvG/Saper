@@ -3,7 +3,6 @@ package ru.ivan.ivanov.gameLogic.bot;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.stereotype.Component;
 import ru.ivan.ivanov.gameLogic.bot.patterns.NoOpenGreyNetsPattern;
 import ru.ivan.ivanov.gameLogic.bot.patterns.Pattern;
 import ru.ivan.ivanov.gameLogic.bot.patterns.netAreaAnalysis.OpenAllCloseNetsPattern;

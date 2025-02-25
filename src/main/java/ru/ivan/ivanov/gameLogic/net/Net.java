@@ -1,8 +1,7 @@
 package ru.ivan.ivanov.gameLogic.net;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import ru.ivan.ivanov.saperUtils.ApplicationContextHolder;
+
+import ru.ivan.ivanov.utils.ApplicationContextHolder;
 
 import java.util.ArrayList;
 import java.util.List;

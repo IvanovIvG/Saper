@@ -1,10 +1,13 @@
-package ru.ivan.ivanov.menuLogic.windows;
+package ru.ivan.ivanov.menuLogic.windows.simpleInputOutputWindows;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import ru.ivan.ivanov.menuLogic.windows.Game;
+import ru.ivan.ivanov.menuLogic.windows.GameSettingsConfigurer;
+import ru.ivan.ivanov.menuLogic.windows.Window;
 
 @Component
-public class GameModeConfigurer extends InputOutputWindow {
+public class GameModeConfigurer extends SimpleInputOutputWindow {
     // close Windows
     private final EntryMenu entryMenu;
     private final Game game;
@@ -19,8 +22,9 @@ public class GameModeConfigurer extends InputOutputWindow {
           3: professional
           4: custom
           0: go back""",
-          (int inputInt) ->
-            inputInt==0 || inputInt==1 || inputInt==2 || inputInt==3 || inputInt==4);
+          (Integer inputInt) ->
+            inputInt==0 || inputInt==1 || inputInt==2 || inputInt==3 || inputInt==4
+        );
 
         this.entryMenu = entryMenu;
         this.game = game;

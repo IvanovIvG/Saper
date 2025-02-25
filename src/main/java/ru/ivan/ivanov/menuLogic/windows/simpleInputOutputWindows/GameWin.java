@@ -1,19 +1,20 @@
-package ru.ivan.ivanov.menuLogic.windows;
+package ru.ivan.ivanov.menuLogic.windows.simpleInputOutputWindows;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import ru.ivan.ivanov.menuLogic.windows.Window;
+import ru.ivan.ivanov.utils.InputScanner;
 
 @Component
-public class GameWin extends InputOutputWindow {
+public class GameWin extends SimpleInputOutputWindow {
     // close Windows
     private final EntryMenu entryMenu;
 
-    @Autowired
-    public GameWin(EntryMenu entryMenu) {
+    public GameWin(EntryMenu entryMenu, InputScanner scanner) {
         super("""
                 Congratulations, you won!
                 1: to menu""",
-               (int inputNum) -> inputNum == 1);
+               (Integer inputNum) -> inputNum == 1
+        );
 
         this.entryMenu = entryMenu;
     }

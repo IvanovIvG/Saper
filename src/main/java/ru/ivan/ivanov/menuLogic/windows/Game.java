@@ -3,6 +3,8 @@ package ru.ivan.ivanov.menuLogic.windows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import ru.ivan.ivanov.gameLogic.gameTry.GameTry;
+import ru.ivan.ivanov.menuLogic.windows.simpleInputOutputWindows.GameLost;
+import ru.ivan.ivanov.menuLogic.windows.simpleInputOutputWindows.GameWin;
 
 @Component
 public class Game implements Window {
@@ -22,7 +24,6 @@ public class Game implements Window {
 
     @Override
     public Window runWindowAndGoToNext() {
-
         GameTry gameTry = new GameTry(fieldWidth, fieldHeight, mineNumber);
         boolean gameResult = gameTry.playGameStub();
         if(gameWon(gameResult)) {
@@ -37,7 +38,7 @@ public class Game implements Window {
         return gameResult;
     }
 
-    protected void setGameFieldSettings(int width, int height, int mines) {
+    public void setGameFieldSettings(int width, int height, int mines) {
         fieldWidth = width;
         fieldHeight = height;
         mineNumber = mines;

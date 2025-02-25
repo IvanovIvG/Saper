@@ -24,7 +24,7 @@ public class GameFileConfig {
     private GameFileConfig(Path path) throws IOException {
         stringField = Files.readAllLines(path, StandardCharsets.UTF_8);
         mineNumber = 0;
-        fieldWidth = stringField.getFirst().length()/2;
+        fieldWidth = stringField.get(0).length()/2;
         fieldHeight = stringField.size();
 
         lineField = new Boolean[fieldWidth * fieldHeight];

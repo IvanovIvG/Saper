@@ -13,7 +13,7 @@ public class OpenedNetDrawer implements NetDrawer {
     @Override
     public void printNet(Net net) {
         switch (net.getNetState()) {
-            case NetState.Flagged -> System.out.print("!");
+            case Flagged -> System.out.print("!");
             case Explosed -> System.out.print("#");
             case Opened, Closed -> {
                 if (netIsMined(net)){

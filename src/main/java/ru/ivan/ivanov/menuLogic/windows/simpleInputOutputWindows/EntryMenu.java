@@ -1,30 +1,29 @@
-package ru.ivan.ivanov.menuLogic.windows;
+package ru.ivan.ivanov.menuLogic.windows.simpleInputOutputWindows;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import ru.ivan.ivanov.menuLogic.windows.Window;
 
 @Component
-public class EntryMenu extends InputOutputWindow {
+public class EntryMenu extends SimpleInputOutputWindow {
     // close Windows
     // GameModeConfigurer made not final to make possible EntryMenu bean initialization
     private GameModeConfigurer gameModeConfigurer;
-    private final EndProgramWindowStub endProgramWindowStub;
 
-    @Autowired
-    public EntryMenu(EndProgramWindowStub endProgramWindowStub){
+    public EntryMenu(){
         super("""
           Welcome Saper game!
           1: start game
           0: quit game""",
-          (int inputInt) -> inputInt==0 || inputInt==1);
-        this.endProgramWindowStub = endProgramWindowStub;
+          (Integer inputInt) -> inputInt==0 || inputInt==1
+        );
     }
 
     @Override
     protected Window goToNextWindow(int inputInt) {
         return switch (inputInt) {
             case 1 -> gameModeConfigurer;
-            case 0 -> endProgramWindowStub;
+            case 0 -> null;
             default -> null; //unreached statement
         };
     }

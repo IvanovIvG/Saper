@@ -4,7 +4,7 @@ import ru.ivan.ivanov.gameLogic.gameTry.tryConfig.TryConfig;
 import ru.ivan.ivanov.gameLogic.net.Net;
 import ru.ivan.ivanov.gameLogic.turn.Turn;
 import ru.ivan.ivanov.gameLogic.turn.TurnOption;
-import ru.ivan.ivanov.saperUtils.inputScanner.InputScanner;
+import ru.ivan.ivanov.utils.InputScanner;
 import ru.ivan.ivanov.gameLogic.gameTry.tryConfig.GameState;
 
 public class TryUpdater {

@@ -3,7 +3,6 @@ package ru.ivan.ivanov.botTests.flagAllCloseNets;
 import org.junit.jupiter.api.Test;
 import ru.ivan.ivanov.botTests.testContextCreator.TestContextCreator;
 import ru.ivan.ivanov.gameLogic.bot.patterns.netAreaAnalysis.FlagAllCloseNetsPattern;
-import ru.ivan.ivanov.gameLogic.bot.patterns.netAreaAnalysis.OpenAllCloseNetsPattern;
 import ru.ivan.ivanov.gameLogic.turn.Turn;
 
 import java.util.Set;
@@ -12,6 +11,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
 /**
+ * Test for FlagAllCloseNetsPattern
+ *
  * @author Ivan Ivanov
  **/
 class FlagAllCloseNetsPatternTest {

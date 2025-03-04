@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
+ * Pattern analysis close nets of some net
  *
  * @author Ivan Ivanov
  **/
@@ -34,13 +35,15 @@ public abstract class NetAreaAnalysisAbstractPattern implements Pattern {
         return null;
     }
 
-//    //infoOnCloseNets contains list of closed nets and number of mines in them
-//    protected void tryPatternWithAdditionalInfoOnCloseNets(Net net, NetsWithMines infoOnCloseNets) {
-//        fillInInfoLists(net, infoOnCloseNets);
-//        if(patternHasMeanToTry()){
-//            tryPatternOnNet();
-//        }
-//    }
+    //infoOnCloseNets contains list of closed nets and number of mines in them
+    protected Turn tryPatternWithAdditionalInfoOnCloseNets(Net net, NetsWithMines infoOnCloseNets) {
+        fillInInfoLists(net, infoOnCloseNets);
+        if(patternHasMeanToTry()){
+            Turn turn = tryPatternOnNet();
+            if(turnIsMade(turn)) return turn;
+        }
+        return null;
+    }
 
     private void fillInInfoLists(Net net) {
         fillInFlaggedCloseNets(net);

@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ *  Flag all close nets when all close nets are mined
+ *
  * @author Ivan Ivanov
  **/
 @Component

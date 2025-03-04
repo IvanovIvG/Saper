@@ -1,26 +1,39 @@
 package ru.ivan.ivanov.gameLogic.bot;
 
+import lombok.Data;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
-import ru.ivan.ivanov.gameLogic.net.Net;
+import ru.ivan.ivanov.gameData.GameData;
+import ru.ivan.ivanov.gameData.net.Net;
 
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Keeps information about game field used by bot logic.
+ *
+ * @author Ivan Ivanov
+ **/
 @Component
+@RequiredArgsConstructor
+@Data
 public class FieldInfo {
-    public List<Net> gameField;
-    //list of open nets in field who have at least one closed closeNet
-    public List<Net> boardNets;
-    //list of closed nets in field
-    public List<Net> closedNets;
+    private final GameData gameData;
 
-    FieldInfo(List<Net> gameField){
-        this.gameField = gameField;
-        boardNets = new ArrayList<>();
-        closedNets = new ArrayList<>();
-    }
+    private List<Net> gameField = new ArrayList<>();
+    /**
+     * Open nets in field who have at least one closed closeNet
+     */
+    private final List<Net> boardNets = new ArrayList<>();
+
+    /**
+     * List of closed nets in field
+     */
+    private final List<Net> closedNets = new ArrayList<>();
+
 
     public void update() {
+        gameField = gameData.getGameField();
         fillInBoardNets();
         fillInClosedNets();
     }
@@ -52,7 +65,6 @@ public class FieldInfo {
     }
 
     private long numberOfClosedCloseNets(Net net) {
-        return net.closeNets.stream().filter(Net::isClosed).count();
+        return net.getCloseNets().stream().filter(Net::isClosed).count();
     }
-
 }

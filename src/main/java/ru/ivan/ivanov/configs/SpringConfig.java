@@ -3,7 +3,6 @@ package ru.ivan.ivanov.configs;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
 
 import java.util.Scanner;
 
@@ -12,7 +11,6 @@ import java.util.Scanner;
  **/
 @Configuration
 @ComponentScan(basePackages = "ru.ivan.ivanov")
-@PropertySource("classpath:game.properties")
 public class SpringConfig {
 
     @Bean

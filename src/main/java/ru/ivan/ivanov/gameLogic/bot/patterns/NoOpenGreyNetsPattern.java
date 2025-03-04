@@ -1,32 +1,46 @@
 package ru.ivan.ivanov.gameLogic.bot.patterns;
 
+import lombok.RequiredArgsConstructor;
+import org.springframework.core.annotation.Order;
+import org.springframework.stereotype.Component;
+import ru.ivan.ivanov.gameData.net.Net;
 import ru.ivan.ivanov.gameLogic.bot.FieldInfo;
-import ru.ivan.ivanov.gameLogic.net.Net;
-import ru.ivan.ivanov.gameLogic.Turn;
+import ru.ivan.ivanov.gameLogic.turn.Turn;
+import ru.ivan.ivanov.gameLogic.turn.TurnOption;
+
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
-//this pattern open random closed net before grey net was opened
-//after this he stops working
-//used in beginning of game to open nets, before grey net to be opened
-public class NoOpenGreyNetsPattern extends Pattern {
-    //grey net is net which has 0 in closeNets field
-    private boolean greyNetWasOpened;
+/**
+ * Open random closed net before grey net was opened
+ * <p>
+ * After this he stops working
+ * Used in beginning of game to open nets, before grey net to be opened
+ *
+ * @author Ivan Ivanov
+ **/
+@Component
+@Order(1)
+@RequiredArgsConstructor
+public class NoOpenGreyNetsPattern implements Pattern {
+    private final FieldInfo fieldInfo;
 
-    public NoOpenGreyNetsPattern(FieldInfo fieldInfo, Turn turnToMake) {
-        super(fieldInfo, turnToMake);
-        greyNetWasOpened = false;
-    }
+    /**
+     * Grey net is net which has 0 in closeNets field
+     */
+    private boolean greyNetWasOpened = false;
 
-    public void tryPattern() {
+    @Override
+    public Turn tryPattern() {
         if (greyNetWasOpened) {
-            return;
+            return null;
         }
-        Net randomClosedNet = getRandomNet(fieldInfo.closedNets);
-        openNet(randomClosedNet);
+
+        Net randomClosedNet = getRandomNet(fieldInfo.getClosedNets());
         if(netIsGrey(randomClosedNet)){
             greyNetWasOpened = true;
         }
+        return new Turn(TurnOption.OpenNet, List.of(randomClosedNet));
     }
 
     private Net getRandomNet(List<Net> nets) {
@@ -34,16 +48,12 @@ public class NoOpenGreyNetsPattern extends Pattern {
         return nets.get(randomNum);
     }
 
-    private void openNet(Net net) {
-        turnToMake.netsToTurn.add(net);
-        turnToMake.turnOption = Turn.OpenNet;
-    }
-
     private boolean netIsGrey(Net net) {
-        return net.closeMinesNumber == 0;
+        return net.getCloseMinesNumber() == 0;
     }
-
-
 }
+
+
+
 
 

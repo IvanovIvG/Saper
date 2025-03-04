@@ -1,33 +1,45 @@
-package ru.ivan.ivanov.gameLogic.gameTry.tryConfig;
+package ru.ivan.ivanov.gameCreator.gameFactory;
+
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 
-public class GameFileConfig {
+/**
+ * Reads information from config file.
+ * <p>
+ * File contains information about mines positions.
+ * Class read file and saves info about field size and mines positions.
+ * Before getting info via getters, readFile() must be called.
+ *
+ * @author Ivan Ivanov
+ **/
+@Component
+public class FileReader {
     private int mineNumber;
-    private final int fieldWidth;
-    private final int fieldHeight;
-    private final Boolean[] lineField;
+    private int fieldWidth;
+    private int fieldHeight;
+    private Boolean[] lineField;
 
-    private final List<String> stringField;
+    private boolean fileRead = false;
+    private List<String> stringField = new ArrayList<>();
     private int lineFieldIndex;
 
-    public static GameFileConfig getGameFileConfig(String savedFieldFilePath) throws IOException {
-        Path path = Paths.get(savedFieldFilePath);
-        return new GameFileConfig(path);
-    }
-
-    private GameFileConfig(Path path) throws IOException {
+    public void readFile(String configFileName) throws IOException {
+        fileRead = true;
+        Path path = Paths.get(configFileName);
         stringField = Files.readAllLines(path, StandardCharsets.UTF_8);
-        mineNumber = 0;
-        fieldWidth = stringField.get(0).length()/2;
-        fieldHeight = stringField.size();
 
+        mineNumber = 0;
+        fieldWidth = stringField.getFirst().length()/2;
+        fieldHeight = stringField.size();
         lineField = new Boolean[fieldWidth * fieldHeight];
+
         lineFieldIndex = 0;
         fillInLineFieldAndUpdateMineNumber();
     }
@@ -65,18 +77,22 @@ public class GameFileConfig {
     }
 
     public int getMineNumber() {
+        if(!fileRead) throw new RuntimeException("File has not been read");
         return mineNumber;
     }
 
     public int getFieldWidth() {
+        if(!fileRead) throw new RuntimeException("File has not been read");
         return fieldWidth;
     }
 
     public int getFieldHeight() {
+        if(!fileRead) throw new RuntimeException("File has not been read");
         return fieldHeight;
     }
 
     public Boolean[] getLineField() {
+        if(!fileRead) throw new RuntimeException("File has not been read");
         return lineField;
     }
 }

@@ -1,28 +1,34 @@
 package ru.ivan.ivanov.menuLogic.windows;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
-import ru.ivan.ivanov.gameLogic.gameTry.GameTry;
+import ru.ivan.ivanov.gameLogic.Game;
 import ru.ivan.ivanov.menuLogic.windows.simpleInputOutputWindows.GameLost;
 import ru.ivan.ivanov.menuLogic.windows.simpleInputOutputWindows.GameWin;
 
 /**
  * This window runs game.
+ * <p>
+ * GameTry class is lazily initialized when runWindowAndGoToNext() called.
  *
  *  @author Ivan Ivanov
  **/
 @Component
-public class Game implements Window {
+public class GameWindow implements Window {
     // close Windows
     private final GameWin gameWin;
     private final GameLost gameLost;
 
-    private GameTry gameTry;
+    private final Game game;
+
+    public GameWindow(GameWin gameWin, GameLost gameLost, Game game) {
+        this.gameWin = gameWin;
+        this.gameLost = gameLost;
+        this.game = game;
+    }
 
     @Override
     public Window runWindowAndGoToNext() {
-        boolean gameResult = gameTry.playGameStub();
+        boolean gameResult = game.playGame();
         if(gameWon(gameResult)) {
             return gameWin;
         }
@@ -33,17 +39,5 @@ public class Game implements Window {
 
     private boolean gameWon(boolean gameResult) {
         return gameResult;
-    }
-
-    @Autowired
-    public Game(GameWin gameWin, GameLost gameLost) {
-        this.gameWin = gameWin;
-        this.gameLost = gameLost;
-    }
-
-    @Autowired
-    @Lazy
-    public void setGameTry(GameTry gameTry) {
-        this.gameTry = gameTry;
     }
 }

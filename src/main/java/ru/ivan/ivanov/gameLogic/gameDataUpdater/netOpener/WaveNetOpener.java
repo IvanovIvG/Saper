@@ -1,12 +1,18 @@
-package ru.ivan.ivanov.gameLogic.net;
+package ru.ivan.ivanov.gameLogic.gameDataUpdater.netOpener;
 
 import org.springframework.stereotype.Component;
+import ru.ivan.ivanov.gameData.net.Net;
 
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Open close nets of net.
+ *
+ * @author Ivan Ivanov
+ **/
 @Component
-public class NetOpener {
+public class WaveNetOpener {
     //nets to be open on next iteration of algorithm
     private final List<Net> boardNets = new ArrayList<>();
 
@@ -63,7 +69,7 @@ public class NetOpener {
 
 
     private List<Net> getGreyBoardNets() {
-       List<Net> greyBoardNets = new ArrayList<>();
+        List<Net> greyBoardNets = new ArrayList<>();
         for(Net net : boardNets){
             if (netIsGrey(net)) greyBoardNets.add(net);
         }

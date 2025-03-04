@@ -17,9 +17,9 @@ public class EntryMenu extends SimpleInputOutputWindow {
 
     public EntryMenu(){
         super("""
-          Welcome Saper game!
-          1: start game
-          0: quit game""",
+          Welcome Saper!
+          1: start gameWindow
+          0: quit gameWindow""",
           (Integer inputInt) -> inputInt==0 || inputInt==1
         );
     }

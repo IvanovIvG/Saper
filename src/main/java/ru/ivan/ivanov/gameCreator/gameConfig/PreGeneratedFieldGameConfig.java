@@ -1,7 +1,6 @@
 package ru.ivan.ivanov.gameCreator.gameConfig;
 
 import lombok.Getter;
-import ru.ivan.ivanov.gameCreator.gameFactory.GameFactory;
 import ru.ivan.ivanov.gameCreator.gameFactory.PreGeneratedFieldGameFactory;
 
 /**

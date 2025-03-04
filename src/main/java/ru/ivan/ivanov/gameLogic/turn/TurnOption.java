@@ -6,5 +6,5 @@ package ru.ivan.ivanov.gameLogic.turn;
  * @author Ivan Ivanov
  **/
 public enum TurnOption {
-    NoTurn, PlayerTurn, OpenNet, PutFlag, TakeOffFlag;
+    NoTurn, PlayerTurn, OpenNet, PutFlag, TakeOffFlag
 }

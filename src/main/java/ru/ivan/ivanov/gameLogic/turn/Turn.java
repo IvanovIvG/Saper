@@ -1,7 +1,6 @@
 package ru.ivan.ivanov.gameLogic.turn;
 
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import ru.ivan.ivanov.gameData.net.Net;
 

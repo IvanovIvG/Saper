@@ -2,7 +2,9 @@ package ru.ivan.ivanov.gameData.net;
 
 
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +14,8 @@ import java.util.List;
  *
  *  @author Ivan Ivanov
  **/
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 public class Net {
 

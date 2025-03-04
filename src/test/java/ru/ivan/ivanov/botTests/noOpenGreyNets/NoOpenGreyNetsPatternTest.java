@@ -1,4 +1,4 @@
-package ru.ivan.ivanov.botTests.noOpenGreyNetsPatternTest;
+package ru.ivan.ivanov.botTests.noOpenGreyNets;
 
 import org.junit.jupiter.api.Test;
 import ru.ivan.ivanov.botTests.testContextCreator.TestContextCreator;
@@ -8,6 +8,8 @@ import ru.ivan.ivanov.gameLogic.turn.Turn;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
+ * Tests NoOpenGreyNetsPattern logic
+ *
  * @author Ivan Ivanov
  **/
 
@@ -17,7 +19,7 @@ class NoOpenGreyNetsPatternTest {
     @Test
     public void patternOpensNet(){
         String textContextFileName =
-                "src/test/java/ru/ivan/ivanov/botTests/noOpenGreyNetsPatternTest/NoOpTestContext.txt";
+                "src/test/java/ru/ivan/ivanov/botTests/noOpenGreyNets/NoNetsToOpen.txt";
         contextCreator.createContext(textContextFileName);
         NoOpenGreyNetsPattern pattern = new NoOpenGreyNetsPattern(contextCreator.getFiledInfo());
         Turn expectedTurn = contextCreator.getExpectedTurn();

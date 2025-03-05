@@ -1,0 +1,5 @@
+-improve openRandomNetPattern(consider explose probability)
+-add game success metric
+-add pattern of net area inclusion with un full information
+    (in some nets not more/less then some mines number)
+-add pattern mines chain analysis(if this net mined, then another one is) looking for logic conflicts

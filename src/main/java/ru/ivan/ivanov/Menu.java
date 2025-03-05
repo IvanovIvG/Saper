@@ -12,7 +12,8 @@ import ru.ivan.ivanov.utils.ApplicationContextHolder;
  * @author Ivan Ivanov
  **/
 @Component
-public class Menu {
+public class
+Menu {
     private Window currentVisibleWindow;
 
     public Menu(EntryMenu entryMenu) {

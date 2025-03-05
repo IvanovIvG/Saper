@@ -27,14 +27,23 @@ public class FieldInfo {
     private final List<Net> boardNets = new ArrayList<>();
 
     /**
+     * Closed nets which has close open nets
+     */
+    private final List<Net> outsideNets = new ArrayList<>();
+
+    /**
      * List of closed nets in field
      */
     private final List<Net> closedNets = new ArrayList<>();
 
+    private int mineNumber;
+
 
     public void update() {
         gameField = gameData.getGameField();
+        mineNumber = gameData.getNumberOfUnflaggedMines();
         fillInBoardNets();
+        fillInOutsideNets();
         fillInClosedNets();
     }
 
@@ -43,6 +52,15 @@ public class FieldInfo {
         for(Net net: gameField) {
             if(netIsBoard(net)) {
                 boardNets.add(net);
+            }
+        }
+    }
+
+    private void fillInOutsideNets() {
+        outsideNets.clear();
+        for(Net net: gameField) {
+            if(netIsOutside(net)) {
+                outsideNets.add(net);
             }
         }
     }
@@ -64,7 +82,19 @@ public class FieldInfo {
         return numberOfClosedCloseNets(net) != 0;
     }
 
-    private long numberOfClosedCloseNets(Net net) {
-        return net.getCloseNets().stream().filter(Net::isClosed).count();
+    private int numberOfClosedCloseNets(Net net) {
+        return (int) net.getCloseNets().stream().filter(Net::isClosed).count();
+    }
+
+    private boolean netIsOutside(Net net) {
+        return net.isClosed() && netHasOpenedCloseNets(net);
+    }
+
+    private boolean netHasOpenedCloseNets(Net net) {
+        return numberOfOpenedCloseNets(net) != 0;
+    }
+
+    private int numberOfOpenedCloseNets(Net net) {
+        return (int) net.getCloseNets().stream().filter(Net::isOpened).count();
     }
 }

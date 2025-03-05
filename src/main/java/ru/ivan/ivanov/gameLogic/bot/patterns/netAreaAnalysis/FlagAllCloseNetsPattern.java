@@ -16,7 +16,7 @@ import java.util.List;
  * @author Ivan Ivanov
  **/
 @Component
-@Order(2)
+@Order(1)
 public class FlagAllCloseNetsPattern extends NetAreaAnalysisAbstractPattern{
     public FlagAllCloseNetsPattern(FieldInfo fieldInfo) {
         super(fieldInfo);

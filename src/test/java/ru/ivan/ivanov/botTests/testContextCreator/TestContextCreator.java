@@ -1,5 +1,6 @@
 package ru.ivan.ivanov.botTests.testContextCreator;
 
+import org.apache.commons.lang3.StringUtils;
 import ru.ivan.ivanov.gameCreator.GameCreator;
 import ru.ivan.ivanov.gameCreator.gameConfig.GameConfig;
 import ru.ivan.ivanov.gameCreator.gameConfig.PreGeneratedFieldGameConfig;
@@ -91,6 +92,8 @@ public class TestContextCreator {
             NetState netState = netStates.get(i);
             net.setNetState(netState);
         }
+        int numberOfUnflaggedNets = countNumberOfUnflaggedMines(contextConfigFileName);
+        gameData.setNumberOfUnflaggedMines(numberOfUnflaggedNets);
     }
 
     private List<NetState> getNetsStatesFromContextConfig(String contextConfigFileName) {
@@ -129,6 +132,23 @@ public class TestContextCreator {
             case "n" -> netsStates.add(NetState.Opened);
             default -> throw new IllegalArgumentException("Unexpected value: " + net);
         }
+    }
+
+    private int countNumberOfUnflaggedMines(String contextConfigFileName) {
+        int numberOfUnflaggedMines = 0;
+        Path contextConfigPath = Paths.get(contextConfigFileName);
+        List<String> contextConfigField;
+        try {
+            contextConfigField = Files.readAllLines(contextConfigPath, StandardCharsets.UTF_8);
+        } catch (IOException e) {
+            throw new RuntimeException("Can't read file");
+        }
+        contextConfigField.removeLast();
+        for (String line : contextConfigField){
+            numberOfUnflaggedMines += StringUtils.countMatches(line, '_');
+
+        }
+        return numberOfUnflaggedMines;
     }
 
     private Turn createExpectedTurn(String contextConfigFileName) {

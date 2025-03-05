@@ -1,6 +1,7 @@
 package ru.ivan.ivanov.gameLogic.bot.patterns;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import ru.ivan.ivanov.gameData.net.Net;
@@ -20,7 +21,7 @@ import java.util.concurrent.ThreadLocalRandom;
  * @author Ivan Ivanov
  **/
 @Component
-@Order(1)
+@Order(Ordered.HIGHEST_PRECEDENCE)
 @RequiredArgsConstructor
 public class NoOpenGreyNetsPattern implements Pattern {
     private final FieldInfo fieldInfo;

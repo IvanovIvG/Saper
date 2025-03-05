@@ -13,14 +13,14 @@ import java.util.List;
  * if all closedCloseNets of net a(list a) contains in closedCloseNet of net b(list b)
  * that means that list a contains certain number of mines(mineNumber of net a)
  * that allows to use openAllCloseNetsPattern and flagAllCloseNetPattern patterns on net b with
- *   additional information
+ * additional information
  * tries openAllCloseNetsPattern and flagAllCloseNetPattern patterns for net b
  * these patterns are given information that list a has certain number of mines
  *
  * @author Ivan Ivanov
  **/
 @Component
-@Order(3)
+@Order(2)
 public class CloseNetsInclusionPattern extends NetAreaAnalysisAbstractPattern{
     private final OpenAllCloseNetsPattern openAllCloseNetsPattern;
     private final FlagAllCloseNetsPattern flagAllCloseNetPattern;

@@ -16,7 +16,7 @@ import java.util.List;
  * @author Ivan Ivanov
  **/
 @Component
-@Order(2)
+@Order(1)
 public class OpenAllCloseNetsPattern extends NetAreaAnalysisAbstractPattern{
 
     public OpenAllCloseNetsPattern(FieldInfo fieldInfo) {

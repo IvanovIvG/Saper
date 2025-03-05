@@ -6,7 +6,6 @@ import ru.ivan.ivanov.gameData.net.Net;
 import ru.ivan.ivanov.gameLogic.bot.patterns.netAreaAnalysis.OpenAllCloseNetsPattern;
 import ru.ivan.ivanov.gameLogic.turn.Turn;
 
-import java.util.List;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

@@ -6,4 +6,4 @@ Runs in console.
 
 Has following architecture:
 
-![Saper architecture](https://github.com/user-attachments/assets/43cf2ff8-e8f3-4a93-bdbd-df94c828b23e)
+![Saper architecture](https://github.com/user-attachments/assets/93376215-e541-40ea-af25-923a1cde6250)

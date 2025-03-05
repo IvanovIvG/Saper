@@ -26,6 +26,6 @@ class NoOpenGreyNetsPatternTest {
 
         Turn madeTurn = pattern.tryPattern();
 
-        assertEquals(madeTurn.getTurnOption(), expectedTurn.getTurnOption());
+        assertEquals(expectedTurn.getTurnOption(), madeTurn.getTurnOption());
     }
 }

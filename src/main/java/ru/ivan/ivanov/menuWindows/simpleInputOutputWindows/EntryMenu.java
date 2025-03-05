@@ -1,8 +1,8 @@
-package ru.ivan.ivanov.menuLogic.windows.simpleInputOutputWindows;
+package ru.ivan.ivanov.menuWindows.simpleInputOutputWindows;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import ru.ivan.ivanov.menuLogic.windows.Window;
+import ru.ivan.ivanov.menuWindows.Window;
 
 /**
  * This is app's entry menu window.
@@ -18,8 +18,8 @@ public class EntryMenu extends SimpleInputOutputWindow {
     public EntryMenu(){
         super("""
           Welcome Saper!
-          1: start gameWindow
-          0: quit gameWindow""",
+          1: start game
+          0: quit game""",
           (Integer inputInt) -> inputInt==0 || inputInt==1
         );
     }

@@ -1,9 +1,9 @@
-package ru.ivan.ivanov.menuLogic.windows;
+package ru.ivan.ivanov.menuWindows;
 
 import org.springframework.stereotype.Component;
 import ru.ivan.ivanov.gameLogic.Game;
-import ru.ivan.ivanov.menuLogic.windows.simpleInputOutputWindows.GameLost;
-import ru.ivan.ivanov.menuLogic.windows.simpleInputOutputWindows.GameWin;
+import ru.ivan.ivanov.menuWindows.simpleInputOutputWindows.GameLost;
+import ru.ivan.ivanov.menuWindows.simpleInputOutputWindows.GameWin;
 
 /**
  * This window runs game.

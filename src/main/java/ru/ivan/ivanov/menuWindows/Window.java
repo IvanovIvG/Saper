@@ -1,4 +1,4 @@
-package ru.ivan.ivanov.menuLogic.windows;
+package ru.ivan.ivanov.menuWindows;
 
 /**
  * Contract for app's windows.

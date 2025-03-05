@@ -1,8 +1,8 @@
-package ru.ivan.ivanov.menuLogic.windows.simpleInputOutputWindows;
+package ru.ivan.ivanov.menuWindows.simpleInputOutputWindows;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import ru.ivan.ivanov.menuLogic.windows.Window;
+import ru.ivan.ivanov.menuWindows.Window;
 
 /**
  * This window is shown when game is lost.

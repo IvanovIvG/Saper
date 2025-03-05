@@ -1,4 +1,4 @@
-package ru.ivan.ivanov.menuLogic.windows;
+package ru.ivan.ivanov.menuWindows;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;

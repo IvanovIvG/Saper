@@ -1,9 +1,9 @@
-package ru.ivan.ivanov.menuLogic;
+package ru.ivan.ivanov;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
-import ru.ivan.ivanov.menuLogic.windows.*;
-import ru.ivan.ivanov.menuLogic.windows.simpleInputOutputWindows.EntryMenu;
+import ru.ivan.ivanov.menuWindows.Window;
+import ru.ivan.ivanov.menuWindows.simpleInputOutputWindows.EntryMenu;
 import ru.ivan.ivanov.utils.ApplicationContextHolder;
 
 /**

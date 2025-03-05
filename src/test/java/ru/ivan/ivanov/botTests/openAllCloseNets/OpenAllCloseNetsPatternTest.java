@@ -2,9 +2,11 @@ package ru.ivan.ivanov.botTests.openAllCloseNets;
 
 import org.junit.jupiter.api.Test;
 import ru.ivan.ivanov.botTests.testContextCreator.TestContextCreator;
+import ru.ivan.ivanov.gameData.net.Net;
 import ru.ivan.ivanov.gameLogic.bot.patterns.netAreaAnalysis.OpenAllCloseNetsPattern;
 import ru.ivan.ivanov.gameLogic.turn.Turn;
 
+import java.util.List;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -28,8 +30,11 @@ class OpenAllCloseNetsPatternTest {
 
         Turn madeTurn = pattern.tryPattern();
 
-        assertEquals(madeTurn.getTurnOption(), expectedTurn.getTurnOption());
-        assertEquals(Set.copyOf(madeTurn.getNetsToTurn()), Set.copyOf(expectedTurn.getNetsToTurn()));
+        assertEquals(expectedTurn.getTurnOption(), madeTurn.getTurnOption());
+        Set<Net> expectedTurnNets = Set.copyOf(expectedTurn.getNetsToTurn());
+        Set<Net> actualTurnNets = Set.copyOf(madeTurn.getNetsToTurn());
+        assertEquals(expectedTurnNets, actualTurnNets);
+
     }
 
     @Test

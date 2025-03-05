@@ -1,13 +1,13 @@
-package ru.ivan.ivanov.menuLogic.windows.simpleInputOutputWindows;
+package ru.ivan.ivanov.menuWindows.simpleInputOutputWindows;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import ru.ivan.ivanov.gameCreator.gameConfig.PreGeneratedFieldGameConfig;
 import ru.ivan.ivanov.gameCreator.gameConfig.RandomFieldGameConfig;
 import ru.ivan.ivanov.gameCreator.GameCreator;
-import ru.ivan.ivanov.menuLogic.windows.GameWindow;
-import ru.ivan.ivanov.menuLogic.windows.SetCustomGameSettings;
-import ru.ivan.ivanov.menuLogic.windows.Window;
+import ru.ivan.ivanov.menuWindows.GameWindow;
+import ru.ivan.ivanov.menuWindows.SetCustomGameSettings;
+import ru.ivan.ivanov.menuWindows.Window;
 
 /**
  * This window is used to choose game modes.

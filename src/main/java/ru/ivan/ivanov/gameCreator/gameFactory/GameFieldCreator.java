@@ -256,7 +256,7 @@ public class GameFieldCreator {
     private void setLeftColumnNets(Net[][] matrixField) {
         if(fieldHeight>=2 && fieldWidth>=2) {
             for(int i = 1, j = 0; i < fieldHeight-1; i++) {
-                matrixField[i][j].setCloseNets(new ArrayList<>(9));
+                matrixField[i][j].setCloseNets(new ArrayList<>(5));
                 matrixField[i][j].getCloseNets().add(matrixField[i - 1][j]);
                 matrixField[i][j].getCloseNets().add(matrixField[i - 1][j + 1]);
                 matrixField[i][j].getCloseNets().add(matrixField[i][j + 1]);
@@ -269,7 +269,7 @@ public class GameFieldCreator {
     private void setRightColumnNets(Net[][] matrixField) {
         if(fieldHeight>=2 && fieldWidth>=2) {
             for(int i = 1, j = fieldWidth-1; i < fieldHeight-1; i++) {
-                matrixField[i][j].setCloseNets(new ArrayList<>(9));
+                matrixField[i][j].setCloseNets(new ArrayList<>(5));
                 matrixField[i][j].getCloseNets().add(matrixField[i - 1][j - 1]);
                 matrixField[i][j].getCloseNets().add(matrixField[i - 1][j]);
                 matrixField[i][j].getCloseNets().add(matrixField[i][j - 1]);
@@ -282,7 +282,7 @@ public class GameFieldCreator {
     private void setUpLineNets(Net[][] matrixField) {
         if(fieldHeight>=2 && fieldWidth>=2) {
             for(int i = 0, j = 1; j < fieldWidth-1; j++) {
-                matrixField[i][j].setCloseNets(new ArrayList<>(9));
+                matrixField[i][j].setCloseNets(new ArrayList<>(5));
                 matrixField[i][j].getCloseNets().add(matrixField[i][j - 1]);
                 matrixField[i][j].getCloseNets().add(matrixField[i][j + 1]);
                 matrixField[i][j].getCloseNets().add(matrixField[i + 1][j - 1]);
@@ -295,7 +295,7 @@ public class GameFieldCreator {
     private void setDownLineNets(Net[][] matrixField) {
         if(fieldHeight>=2 && fieldWidth>=2) {
             for(int i = fieldHeight-1, j = 1; j < fieldWidth-1; j++) {
-                matrixField[i][j].setCloseNets(new ArrayList<>(9));
+                matrixField[i][j].setCloseNets(new ArrayList<>(5));
                 matrixField[i][j].getCloseNets().add(matrixField[i - 1][j - 1]);
                 matrixField[i][j].getCloseNets().add(matrixField[i - 1][j]);
                 matrixField[i][j].getCloseNets().add(matrixField[i - 1][j + 1]);
@@ -309,12 +309,11 @@ public class GameFieldCreator {
         if(fieldHeight>=3 && fieldWidth>=3) {
             for(int i = 1; i < fieldHeight-1; i++) {
                 for(int j = 1; j < fieldWidth-1; j++) {
-                    matrixField[i][j].setCloseNets(new ArrayList<>(9));
+                    matrixField[i][j].setCloseNets(new ArrayList<>(8));
                     matrixField[i][j].getCloseNets().add(matrixField[i - 1][j - 1]);
                     matrixField[i][j].getCloseNets().add(matrixField[i - 1][j]);
                     matrixField[i][j].getCloseNets().add(matrixField[i - 1][j + 1]);
                     matrixField[i][j].getCloseNets().add(matrixField[i][j - 1]);
-                    matrixField[i][j].getCloseNets().add(matrixField[i][j]);
                     matrixField[i][j].getCloseNets().add(matrixField[i][j + 1]);
                     matrixField[i][j].getCloseNets().add(matrixField[i + 1][j - 1]);
                     matrixField[i][j].getCloseNets().add(matrixField[i + 1][j]);

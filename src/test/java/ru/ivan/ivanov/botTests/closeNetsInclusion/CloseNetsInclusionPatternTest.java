@@ -2,7 +2,7 @@ package ru.ivan.ivanov.botTests.closeNetsInclusion;
 
 import org.junit.jupiter.api.Test;
 import ru.ivan.ivanov.botTests.testContextCreator.TestContextCreator;
-import ru.ivan.ivanov.gameLogic.bot.patterns.NoOpenGreyNetsPattern;
+import ru.ivan.ivanov.gameData.net.Net;
 import ru.ivan.ivanov.gameLogic.bot.patterns.netAreaAnalysis.CloseNetsInclusionPattern;
 import ru.ivan.ivanov.gameLogic.bot.patterns.netAreaAnalysis.FlagAllCloseNetsPattern;
 import ru.ivan.ivanov.gameLogic.bot.patterns.netAreaAnalysis.OpenAllCloseNetsPattern;
@@ -25,16 +25,15 @@ class CloseNetsInclusionPatternTest {
         String textContextFileName =
                 "src/test/java/ru/ivan/ivanov/botTests/closeNetsInclusion/openNets.txt";
         contextCreator.createContext(textContextFileName);
-        OpenAllCloseNetsPattern openAllCloseNetsPattern = new OpenAllCloseNetsPattern(contextCreator.getFiledInfo());
-        FlagAllCloseNetsPattern flagAllCloseNetsPattern = new FlagAllCloseNetsPattern(contextCreator.getFiledInfo());
-        CloseNetsInclusionPattern pattern = new CloseNetsInclusionPattern(contextCreator.getFiledInfo(),
-                openAllCloseNetsPattern, flagAllCloseNetsPattern);
+        CloseNetsInclusionPattern pattern = getPattern();
         Turn expectedTurn = contextCreator.getExpectedTurn();
 
         Turn madeTurn = pattern.tryPattern();
 
-        assertEquals(madeTurn.getTurnOption(), expectedTurn.getTurnOption());
-        assertEquals(Set.copyOf(madeTurn.getNetsToTurn()), Set.copyOf(expectedTurn.getNetsToTurn()));
+        assertEquals(expectedTurn.getTurnOption(), madeTurn.getTurnOption());
+        Set<Net> expectedTurnNets = Set.copyOf(expectedTurn.getNetsToTurn());
+        Set<Net> actualTurnNets = Set.copyOf(madeTurn.getNetsToTurn());
+        assertEquals(expectedTurnNets, actualTurnNets);
     }
 
     @Test
@@ -42,16 +41,38 @@ class CloseNetsInclusionPatternTest {
         String textContextFileName =
                 "src/test/java/ru/ivan/ivanov/botTests/closeNetsInclusion/flagNets.txt";
         contextCreator.createContext(textContextFileName);
-        OpenAllCloseNetsPattern openAllCloseNetsPattern = new OpenAllCloseNetsPattern(contextCreator.getFiledInfo());
-        FlagAllCloseNetsPattern flagAllCloseNetsPattern = new FlagAllCloseNetsPattern(contextCreator.getFiledInfo());
-        CloseNetsInclusionPattern pattern = new CloseNetsInclusionPattern(contextCreator.getFiledInfo(),
-                openAllCloseNetsPattern, flagAllCloseNetsPattern);
+        CloseNetsInclusionPattern pattern = getPattern();
         Turn expectedTurn = contextCreator.getExpectedTurn();
 
         Turn madeTurn = pattern.tryPattern();
 
-        assertEquals(madeTurn.getTurnOption(), expectedTurn.getTurnOption());
-        assertEquals(Set.copyOf(madeTurn.getNetsToTurn()), Set.copyOf(expectedTurn.getNetsToTurn()));
+        assertEquals(expectedTurn.getTurnOption(), madeTurn.getTurnOption());
+        Set<Net> expectedTurnNets = Set.copyOf(expectedTurn.getNetsToTurn());
+        Set<Net> actualTurnNets = Set.copyOf(madeTurn.getNetsToTurn());
+        assertEquals(expectedTurnNets, actualTurnNets);
+    }
+
+    @Test
+    public void testBigField(){
+        String textContextFileName =
+                "src/test/java/ru/ivan/ivanov/botTests/closeNetsInclusion/bigField.txt";
+        contextCreator.createContext(textContextFileName);
+        CloseNetsInclusionPattern pattern = getPattern();
+        Turn expectedTurn = contextCreator.getExpectedTurn();
+
+        Turn madeTurn = pattern.tryPattern();
+
+        assertEquals(expectedTurn.getTurnOption(), madeTurn.getTurnOption());
+        Set<Net> expectedTurnNets = Set.copyOf(expectedTurn.getNetsToTurn());
+        Set<Net> actualTurnNets = Set.copyOf(madeTurn.getNetsToTurn());
+        assertEquals(expectedTurnNets, actualTurnNets);
+    }
+
+    public CloseNetsInclusionPattern getPattern(){
+        OpenAllCloseNetsPattern openAllCloseNetsPattern = new OpenAllCloseNetsPattern(contextCreator.getFiledInfo());
+        FlagAllCloseNetsPattern flagAllCloseNetsPattern = new FlagAllCloseNetsPattern(contextCreator.getFiledInfo());
+        return new CloseNetsInclusionPattern(contextCreator.getFiledInfo(),
+                openAllCloseNetsPattern, flagAllCloseNetsPattern);
     }
 
 }
